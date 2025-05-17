@@ -17,6 +17,8 @@ phases:
     commands:
       - echo Zipping the application...
       - zip -r nodejs-app.zip * .[^.]* -x "node_modules/*"
+      - echo Uploading to S3 root...
+      - aws s3 cp nodejs-app.zip s3://nuthanpractice-bucket/
 
 artifacts:
   files:
