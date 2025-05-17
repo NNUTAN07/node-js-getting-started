@@ -5,23 +5,19 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
-      - echo Installing dependencies...
-      - npm install
+      - echo Installing Node.js dependencies...
+      - npm ci
 
   pre_build:
     commands:
       - echo Running tests...
-      - npm test || echo "No tests found"
+      - npm test
 
   build:
     commands:
-      - echo Build step completed.
-
-  post_build:
-    commands:
-      - echo Creating deployment package...
-      - zip -r ../app.zip .
+      - echo Zipping the application...
+      - zip -r nodejs-app.zip * .[^.]* -x "node_modules/*"
 
 artifacts:
   files:
-    - ../app.zip
+    - nodejs-app.zip
