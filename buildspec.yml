@@ -17,7 +17,7 @@ phases:
     commands:
       - echo Zipping the application...
       - zip -r ../nodejs-app.zip * .[^.]* -x "node_modules/*"
-      - mv ../nodejs-app.zip ./  # ← This is the key fix
+      - mv ../nodejs-app.zip ./
       - echo Build directory contents:
       - ls -alh
 
