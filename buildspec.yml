@@ -6,7 +6,7 @@ phases:
       nodejs: 18
     commands:
       - echo Installing Node.js dependencies...
-      - npm ci --omit=dev  # Installs only production dependencies
+      - npm ci --omit=dev  # Installs only production dependencie
 
   pre_build:
     commands:
