@@ -5,21 +5,20 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
-      - echo "Installing Node.js dependencies..."
+      - echo Installing Node.js dependencies...
       - npm ci
 
   pre_build:
     commands:
-      - echo "Running tests..."
+      - echo Running tests...
       # - npm test
 
   build:
     commands:
-      - echo "Zipping the application..."
-      - zip -r nodejs-app.zip * .[^.]* -x "node_modules/*"
-      - echo "Build directory contents:"
-      - ls -alh
+      - echo Build phase complete.
 
 artifacts:
   files:
-    - nodejs-app.zip
+    - '**/*'
+    - '.*'
+  discard-paths: yes
