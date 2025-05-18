@@ -16,10 +16,11 @@ phases:
   build:
     commands:
       - echo Zipping the application...
-      - zip -r ../nodejs-app.zip * .[^.]* -x "node_modules/*" 
-      - echo Uploading to S3 root...
-      #- aws s3 cp ../nodejs-app.zip s3://nuthanpractice-bucket/
+      - zip -r ../nodejs-app.zip * .[^.]* -x "node_modules/*"
+      - mv ../nodejs-app.zip ./  # ← This is the key fix
+      - echo Build directory contents:
+      - ls -alh
 
 artifacts:
   files:
-    - ../nodejs-app.zip
+    - nodejs-app.zip
