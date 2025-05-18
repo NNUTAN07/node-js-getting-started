@@ -22,4 +22,4 @@ phases:
 
 artifacts:
   files:
-    - nodejs-app.zip
+    - ../nodejs-app.zip
