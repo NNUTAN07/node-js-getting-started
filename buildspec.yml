@@ -6,12 +6,11 @@ phases:
       nodejs: 18
     commands:
       - echo Installing Node.js dependencies...
-      - npm ci
+      - npm ci --omit=dev  # Installs only production dependencies
 
   pre_build:
     commands:
-      - echo Running tests...
-      # - npm test
+      - echo Pre-build phase complete.
 
   build:
     commands:
@@ -19,6 +18,12 @@ phases:
 
 artifacts:
   files:
-    - '**/*'
-    - '.*'
-  discard-paths: yes
+    - index.js
+    - package.json
+    - package-lock.json
+    - views/**/*       
+    - public/**/*      
+    - .npmrc
+    - .env
+    - .gitignore
+  discard-paths: no
